@@ -1,0 +1,35 @@
+---
+title: "About"
+output: 
+  html_document
+---
+
+I earned my Masters in Biostatistics from the Mailman School of Public Health at Columbia University.
+
+I am currently a biostatistician at the Yale Center for Analytics Sciences.
+
+<img 
+  src="/kmbs2.jpeg" 
+  style="display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:45%"/>
+
+I hope to use data-driven decisions to improve health care and access to care.
+
+### I am interested in: 
+- Optimized utilization of electronic health records
+- Data visualization
+- Clinical trials design and methods
+- Science education, awareness, accessibility
+
+### Tools of the trade: 
+
+RStudio, Shiny, SAS, SAS-SUDAAN, SQL, Tableau, MATLAB, and more
+
+### Research interests:
+- Big data, data management, data visualization
+- Mental health
+- Maternal health
+- Insurance, access to care, attitudes and barriers to care
+

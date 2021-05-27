@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kaitlin Maciejewski</title>
+    <link>https://k-maciejewski.github.io/</link>
+    <description>Recent content on Kaitlin Maciejewski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 26 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://k-maciejewski.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tidy Tuesday 2019 week 48: Student loan debt</title>
+      <link>https://k-maciejewski.github.io/tidytuesdays/posts/2019w48/tt_2019_48/</link>
+      <pubDate>Tue, 26 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/tidytuesdays/posts/2019w48/tt_2019_48/</guid>
+      <description>This week’s data is from the Department of Education courtesy of Alex Albright.
+Data idea comes from Dignity and Debt who is running a contest around data viz for understanding and spreading awareness around Student Loan debt.
+Data Dictionary
+Provided by Tidy Tuesday
+    variable class description    agency_name character Name of loan agency  year integer two digits year  quarter integer Quarter (3 month period)  starting double Inventory, Total value in dollars at start of quarter  added double Inventory, Total value added during quarter  total double Recoveries, Total dollars repaid  consolidation double Recoveries, Consolidation reflects the dollar value of loans consolidated  rehabilitation double Recoveries, Rehabilitation reflects the dollar value of loans rehabilitated  voluntary_payments double Recoveries, Voluntary payments reflects the total amount of payments received from borrowers  wage_garnishments double Recoveries, Wage Garnishments reflect the total amount of wage garnishment payments    Preview of the data:</description>
+    </item>
+    
+    <item>
+      <title>Tidy Tuesday 2019 week 45: US modes of travel to work</title>
+      <link>https://k-maciejewski.github.io/tidytuesdays/posts/2019w45/tt_2019_45/</link>
+      <pubDate>Tue, 05 Nov 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/tidytuesdays/posts/2019w45/tt_2019_45/</guid>
+      <description>This week is Modes Less Traveled - Bicycling and Walking to Work in the United States: 2008-2012 from the ACS.
+The commute.csv dataset on Github was tidied from 6 raw excel files. The code and final dataset was already provided.
+Code for tidying summary tables by demographics was also provided.
+First, look at data using head:
+## # A tibble: 6 x 9 ## city state city_size mode n percent moe state_abb state_region ## &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; ## 1 Aberdeen … South D… Small Bike 110 0.</description>
+    </item>
+    
+    <item>
+      <title>Tidy Tuesday 2019 week 44: NYC squirrel census</title>
+      <link>https://k-maciejewski.github.io/tidytuesdays/posts/2019w44/tt_2019_44/</link>
+      <pubDate>Tue, 29 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/tidytuesdays/posts/2019w44/tt_2019_44/</guid>
+      <description>This Tidy Tuesday explores the squirrel census! I took the opportunity to try to learn a little Leaflet.
+The first map shows all squirrels with given distance above ground at which they were sighted. NA’s were filtered out. According to the data dictionary, fields were populated with a value of “FALSE” if the squirrel was on the ground plane so these values were changed to zeros.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://k-maciejewski.github.io/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/about/</guid>
+      <description>I earned my Masters in Biostatistics from the Mailman School of Public Health at Columbia University.
+I am currently a biostatistician at the Yale Center for Analytics Sciences.
+I hope to use data-driven decisions to improve health care and access to care.
+I am interested in:  Optimized utilization of electronic health records Data visualization Clinical trials design and methods Science education, awareness, accessibility   Tools of the trade: RStudio, Shiny, SAS, SAS-SUDAAN, SQL, Tableau, MATLAB, and more</description>
+    </item>
+    
+    <item>
+      <title>Projects</title>
+      <link>https://k-maciejewski.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/projects/</guid>
+      <description>&amp;hellip; Personal projects and class projects &amp;hellip;
+Tidy Tuesdays TidyTuesday is a weekly community activity by the R4DS Online Learning Community. The goal is to help R learners learn in real-world contexts. My contributions and visualizations are also at my github.
+  Graduate capstone project: The relationship between depression and sociodemographic and economic characteristics in New York City adults 2016-2017  Completed as a graduation requirement Columbia University in 2019, under the guidance of Lauren Martini at the New York City Department of Health and Mental Hygiene.</description>
+    </item>
+    
+  </channel>
+</rss>
