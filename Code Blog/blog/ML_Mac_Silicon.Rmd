@@ -5,7 +5,7 @@ author: 'A method for using tensorflow and keras in R on Mac M1'
 
 I was so excited to update from my MacBook Air to the new Pro, especially since I added more memory and RAM. 
 
-However, I should have done more research as didn't realize that not all software is running natively yet. I planned to use Rstudio, Tensorflow and Keras, for a new project so after I loaded the libraries as normal and ran the [RStudio keras demo](https://tensorflow.rstudio.com/tutorials/beginners/). And was met with a fatal error, then massive confusion and frustration.  Most posts I found  about this issue reference OS 11, but my computer was preloaded with OS 12. After many days of trial and error, I finally found success. Hopefully, this helps someone else, too.
+However, I should have done more research as I didn't realize that not all software is running natively yet. I planned to use Rstudio, Tensorflow and Keras, for a new project so after I loaded the libraries as normal and ran the [RStudio keras demo](https://tensorflow.rstudio.com/tutorials/beginners/). And was met with a fatal error, then massive confusion and frustration.  Most posts I found  about this issue reference OS 11, but my computer was preloaded with OS 12. After many days of trial and error, I finally found success. Hopefully, this helps someone else, too.
 
 | **Details:** 
 | MacBook Pro with M1 Max Chip 

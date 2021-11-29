@@ -23,8 +23,8 @@ R in SAS: Readying Your Machine to Call R In order to work with R inside SAS, we
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://k-maciejewski.github.io/code-blog/blog/ml_mac_silicon/</guid>
-      <description>I was so excited to update from my MacBook Air to the new Pro, especially since I boosted the memory and RAM!
-However, I had a new project, for which I planned to use Rstudio, Tensorflow and Keras, and was initially met with frustration when trying to use these with my new computer. Most posts I found reference OS 11, but my computer was preloaded with OS 12. After many days, I finally found success.</description>
+      <description>I was so excited to update from my MacBook Air to the new Pro, especially since I added more memory and RAM.
+However, I should have done more research as I didn’t realize that not all software is running natively yet. I planned to use Rstudio, Tensorflow and Keras, for a new project so after I loaded the libraries as normal and ran the RStudio keras demo. And was met with a fatal error, then massive confusion and frustration.</description>
     </item>
     
   </channel>
