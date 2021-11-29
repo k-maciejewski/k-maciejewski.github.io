@@ -4,6 +4,15 @@ title: Projects
 
 ... Personal projects and class projects ...
 
+### [Yale Center for Analytical Sciences (YCAS) Young Scholars](/young-scholars/)
+
+>The YCAS Young Scholars intensive summer program provides promising high school students entering 11th and 12th grade with the opportunity to learn about the work of biostatisticians in an academic environment. During this two week program, we introduce students to basic statistical methods and study designs used in medical research. We also provide instruction in “R,” a computer programming language for statistical analyses. Students work in teams and use real health science data to address study questions and develop a final presentation of their work.
+
+In 2020, due to the COVID-19 Pandemic, the [Yale Young Scholars Program](https://ysph.yale.edu/ycas/training/young_scholars/) transitioned to an online format. I led the creation of online lecture and code materials, including recorded lectures, to allow for asynchronous viewing, for the R/Stats portion of the program. In 2020 and 2021, I co-taught the R/Stats portion to 12 gifted high schoolers, and supervised one of the two groups as they learned about the research process, analysed their datasets with R, and prepared their final presentations. 
+
+#
+#
+
 ### [Tidy Tuesdays](/tidytuesdays/)
 
 
@@ -60,7 +69,7 @@ The dataset was given to us by the professor. Using R, I ran exploratory analysi
 #
 #
 
-### [Undergraduate capstone project:](maciejewski_capstone.pdf)
+### [Undergraduate capstone project:](/projects_files/maciejewski_capstone.pdf)
 #### Overview of General Relativity
 
 - Completed at Fairfield University in 2015, under the guidance of Professor Shawn Rafalski. 
