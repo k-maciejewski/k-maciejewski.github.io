@@ -1,0 +1,75 @@
+---
+title: R Tensorflow and Keras on Mac M1 (Max)
+author: 'A method for using tensorflow and keras in R on Mac M1'
+---
+
+I was so excited to update from my MacBook Air to the new Pro, especially since I boosted the memory and RAM!
+
+However, I had a new project, for which I planned to use Rstudio, Tensorflow and Keras, and was initially met with frustration when trying to use these with my new computer. Most posts I found reference OS 11, but my computer was preloaded with OS 12. After many days, I finally found success. Hopefully, this helps someone else, too.
+
+| **Details:** 
+| MacBook Pro with M1 Max Chip 
+| macOS Monterey 12.0.1
+
+**First**, follow the directions [here](https://developer.apple.com/metal/tensorflow-plugin/) to get tensorflow set up:
+
+Download and install [Conda env](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh). In terminal, run:
+
+    chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+    sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+    source ~/miniforge3/bin/activate
+
+Go through the process to review, then accept license then initialize:
+
+    Do you wish the installer to initialize Miniforge3
+    by running conda init? [yes|no]
+    [no] >>> yes
+
+Install the TensorFlow dependencies:
+
+    conda install -c apple tensorflow-deps
+
+Install base TensorFlow:
+
+    python -m pip install tensorflow-macos
+
+Install tensorflow-metal plugin:
+
+    python -m pip install tensorflow-metal
+
+**Then**, use the info at [Jarrett Byrnes's blog](http://imachordata.com/2021/05/07/r-tensorflow-on-an-m1-mac-without-crashing/) to download an ARM-compatible version of R and RStudio
+
+*Skip step 1.* I had tried different iterations of using the environment created in this step. I may have done something wrong along the way; all I know is that this part did not work for me. (Always got stuck at the .whl file step)
+
+So, starting at step 2:
+
+2.  Install one of the arm64 nightly builds at <https://mac.r-project.org/>
+
+3.  Install a daily build of Rstudio for OSX from <https://dailies.rstudio.com/> so it can handle the new version of R.
+
+Then, modify steps 5 and 8 to account for not having that environment set up. I'm not sure if the `conda activate` is required, but the `Sys.setenv` seemed like the key!
+
+    conda activate
+
+    open -na rstudio
+
+I had already run install.packages("tensorflow") install.packages("keras"); not sure if required to do so in R.
+
+**Finally,** (in R) load the libraries, set environment to the location of the miniforge download, and specify python location
+
+``` {style="color: blue"}
+library(tensorflow)
+library(keras)
+
+Sys.setenv(RETICULATE_PYTHON="/Users/kaitlin/miniforge3/bin/python")
+
+use_python("/Users/kaitlin/miniforge3/bin/python")
+```
+
+Now when trying the code from the [RStudio tutorial ...](https://tensorflow.rstudio.com/tutorials/beginners/)
+
+``` {style="color: blue"}
+mnist <- dataset_mnist()
+```
+
+It works!!

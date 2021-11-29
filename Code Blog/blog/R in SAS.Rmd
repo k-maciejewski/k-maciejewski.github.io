@@ -1,0 +1,92 @@
+---
+title: R in SAS
+author: 'Combining R and SAS -- how to run one software from another'
+---
+
+Note: this works on Windows machines; must have both software loaded on same computer
+
+# R in SAS:
+
+## Readying Your Machine to Call R
+
+In order to work with R inside SAS, we need to enable R language statements. To see whether RLANG is enabled on your machine, you can run:
+
+      proc options option=rlang;
+      run;
+
+One of two results will be printed to the log. You will either get a *NORLANG*, meaning you do not have permission to call R from SAS, or you will get *RLANG*, meaning you do have permission to call R from SAS.
+
+If you get NORLANG you need to change to RLANG. The easiest way is to right-click the SAS icon on your Desktop (put on desktop if not already there), and open Properties. In the Target field, as shown in Figure 1, it provides the location of your SAS configuration file. Generally, it is at:
+
+`C:\ProgramFiles\SASHome\SASFoundation\9.4\nls\en\sasv9.cfg.`
+
+Figure 1: SAS Properties
+
+Navigate to the SASV9.CFG file and open it. When you are in the configuration file, add **-RLANG** at the bottom as shown in Figure 2. Save these changes. **Make sure that SAS is not open** because SAS calls the configuration file each time it starts. You may need administrator permission to modify.
+
+Figure 2: SASV9.CFG file
+
+## Running R in SAS:
+
+You need to have an R version compatible with the SAS version. A download to appropriate version (3.2.5) is below. You may need administrator permission to install.
+
+[Compatibility with R Releases](https://blogs.sas.com/content/iml/2013/09/16/what-versions-of-r-are-supported-by-sas.html)
+
+| SAS Version | PROC IML | SAS/IML Studio | Release Date | R Versions                                                              |
+|-------------|----------|----------------|--------------|-------------------------------------------------------------------------|
+| 9.4M3       | 14.1     | 14.1           | Aug 2015     | 2.13.0 - [3.2.5](https://cran.r-project.org/bin/windows/base/old/3.2.5) |
+
+Now, in the SAS session we need to point to the R program:
+
+`options set=R_HOME='C:\Program Files\R\R-3.2.5';`
+
+Use proc iml and submit/R as in below example:
+
+      proc iml;
+        call ExportDataSetToR("Sashelp.Class", "dframe" );
+        submit / R;
+          names(dframe)
+          lm(Weight ~ Height + Age + Sex, data=dframe)
+        endsubmit;
+      run;
+
+### Using libraries:
+
+If you have a library loaded in the given R version, you can load it in SAS:
+
+      proc iml;
+        submit / R;
+            library(X);
+        endsubmit;
+      run;
+
+You have to ensure that you are using the library version compatible with your R version
+
+a.  I used the [CRAN time machine](https://mran.microsoft.com/timemachine), set to R version 3.2.5, downloaded the library zip files, and installed with R (not RStudio)
+
+b.  I found loading the old packages with RStudio more complicated. If you need Rtools, older versions are [here](https://cran.r-project.org/bin/windows/Rtools/history.html), again, may require administrator permission
+
+You may need to re-direct R to the version.
+
+I was able to use: `writeLines'PATH="C:\rtools \bin;${PATH}"', con = "~/.Renviron")`
+
+More information can be found at the SAS Guide: [Calling R from SAS/IML](Calling%20R%20from%20SAS/IML)
+
+
+# Resources:
+
+<https://support.sas.com/en/books/free-books.html>
+
+<https://support.sas.com/content/dam/SAS/support/en/books/free-books/sas-programming-for-r-users.pdf>
+
+<https://www.ssc.wisc.edu/~hemken/SASworkshops/SASWindows/RfromSAS.html>
+
+<https://blogs.sas.com/content/iml/2013/09/16/what-versions-of-r-are-supported-by-sas.html>
+
+<https://support.sas.com/documentation/cdl/en/imlug/66112/HTML/default/viewer.htm#imlug_r_toc.htm>
+
+<https://cran.r-project.org/bin/windows/base/old/3.2.5/>
+
+<https://cran.r-project.org/bin/windows/Rtools/history.html>
+
+<https://mran.microsoft.com/timemachine>

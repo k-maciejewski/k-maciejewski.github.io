@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R Tensorflow and Keras on Mac M1 (Max) | Kaitlin Maciejewski</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <script src="https://kit.fontawesome.com/2572d6fa3c.js" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/projects/">Projects</a>
+      </li>
+      
+      <li>
+        <a href="/code-blog/">Code Blog</a>
+      </li>
+      
+      
+      <li class="navbar-icon"><a href="mailto:katemac68@gmail.com"><i class="fas fa-envelope"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://github.com/k-maciejewski/"><i class="fab fa-github"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.linkedin.com/in/kmaciejewski/"><i class="fab fa-linkedin"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://orcid.org/0000-0002-6387-582X"><i class="fab fa-orcid"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.researchgate.net/profile/Kaitlin-Maciejewski"><i class="fab fa-researchgate"></i></a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">R Tensorflow and Keras on Mac M1 (Max)</span></h1>
+<h2 class="author">A method for using tensorflow and keras in R on Mac M1</h2>
+
+</div>
+
+<main>
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>I was so excited to update from my MacBook Air to the new Pro, especially since I boosted the memory and RAM!</p>
+<p>However, I had a new project, for which I planned to use Rstudio, Tensorflow and Keras, and was initially met with frustration when trying to use these with my new computer. Most posts I found reference OS 11, but my computer was preloaded with OS 12. After many days, I finally found success. Hopefully, this helps someone else, too.</p>
+<div class="line-block"><strong>Details:</strong><br />
+MacBook Pro with M1 Max Chip<br />
+macOS Monterey 12.0.1</div>
+<p><strong>First</strong>, follow the directions <a href="https://developer.apple.com/metal/tensorflow-plugin/">here</a> to get tensorflow set up:</p>
+<p>Download and install <a href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-MacOSX-arm64.sh">Conda env</a>. In terminal, run:</p>
+<pre><code>chmod +x ~/Downloads/Miniforge3-MacOSX-arm64.sh
+sh ~/Downloads/Miniforge3-MacOSX-arm64.sh
+source ~/miniforge3/bin/activate</code></pre>
+<p>Go through the process to review, then accept license then initialize:</p>
+<pre><code>Do you wish the installer to initialize Miniforge3
+by running conda init? [yes|no]
+[no] &gt;&gt;&gt; yes</code></pre>
+<p>Install the TensorFlow dependencies:</p>
+<pre><code>conda install -c apple tensorflow-deps</code></pre>
+<p>Install base TensorFlow:</p>
+<pre><code>python -m pip install tensorflow-macos</code></pre>
+<p>Install tensorflow-metal plugin:</p>
+<pre><code>python -m pip install tensorflow-metal</code></pre>
+<p><strong>Then</strong>, use the info at <a href="http://imachordata.com/2021/05/07/r-tensorflow-on-an-m1-mac-without-crashing/">Jarrett Byrnes’s blog</a> to download an ARM-compatible version of R and RStudio</p>
+<p><em>Skip step 1.</em> I had tried different iterations of using the environment created in this step. I may have done something wrong along the way; all I know is that this part did not work for me. (Always got stuck at the .whl file step)</p>
+<p>So, starting at step 2:</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Install one of the arm64 nightly builds at <a href="https://mac.r-project.org/" class="uri">https://mac.r-project.org/</a></p></li>
+<li><p>Install a daily build of Rstudio for OSX from <a href="https://dailies.rstudio.com/" class="uri">https://dailies.rstudio.com/</a> so it can handle the new version of R.</p></li>
+</ol>
+<p>Then, modify steps 5 and 8 to account for not having that environment set up. I’m not sure if the <code>conda activate</code> is required, but the <code>Sys.setenv</code> seemed like the key!</p>
+<pre><code>conda activate
+
+open -na rstudio</code></pre>
+<p>I had already run install.packages(“tensorflow”) install.packages(“keras”); not sure if required to do so in R.</p>
+<p><strong>Finally,</strong> (in R) load the libraries, set environment to the location of the miniforge download, and specify python location</p>
+<pre style="color: blue"><code>library(tensorflow)
+library(keras)
+
+Sys.setenv(RETICULATE_PYTHON=&quot;/Users/kaitlin/miniforge3/bin/python&quot;)
+
+use_python(&quot;/Users/kaitlin/miniforge3/bin/python&quot;)</code></pre>
+<p>Now when trying the code from the <a href="https://tensorflow.rstudio.com/tutorials/beginners/">RStudio tutorial …</a></p>
+<pre style="color: blue"><code>mnist &lt;- dataset_mnist()</code></pre>
+<p>It works!!</p>
+
+</main>
+
+  <footer>
+  <hr>
+
+<footer style="background-color:#eee;">
+built with <a href="https://github.com/rstudio/blogdown">blogdown</a>, theme adapted from <a href="https://xmin.yihui.org"> Yihui's hugo-xmin </a>
+</footer>
+  
+  </footer>
+  </body>
+</html>
+

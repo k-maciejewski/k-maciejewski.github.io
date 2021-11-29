@@ -10,7 +10,6 @@ output:
 knitr::opts_chunk$set(echo = F, warning = F, message = F)
 library(tidyverse)
 library(leaflet)
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 
@@ -112,5 +111,3 @@ The final map shows values above 50. There are only a handful of such points.
 `r nyc_squirrels_g50_map`
 
 I couldn't find any information about the units for the measurement, so I'm not sure if the upper range makes any sense...
-
-<hr />

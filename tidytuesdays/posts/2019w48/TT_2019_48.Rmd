@@ -13,7 +13,6 @@ knitr::opts_chunk$set(echo = F, warning = F, message = F)
 library(tidyverse)
 library(gganimate)
 library(ggpubr)
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 This week's data is from the [Department of Education](https://studentaid.ed.gov/sa/about/data-center/student/default) courtesy of [Alex Albright](https://twitter.com/AllbriteAllday).
@@ -263,5 +262,3 @@ animate(spag_plot)
 
 # loans_long %>% filter(is.na(amount)) %>%  knitr::kable()
 ```
-
-<hr />

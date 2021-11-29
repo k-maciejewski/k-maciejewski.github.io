@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>R in SAS | Kaitlin Maciejewski</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <script src="https://kit.fontawesome.com/2572d6fa3c.js" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/projects/">Projects</a>
+      </li>
+      
+      <li>
+        <a href="/code-blog/">Code Blog</a>
+      </li>
+      
+      
+      <li class="navbar-icon"><a href="mailto:katemac68@gmail.com"><i class="fas fa-envelope"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://github.com/k-maciejewski/"><i class="fab fa-github"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.linkedin.com/in/kmaciejewski/"><i class="fab fa-linkedin"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://orcid.org/0000-0002-6387-582X"><i class="fab fa-orcid"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.researchgate.net/profile/Kaitlin-Maciejewski"><i class="fab fa-researchgate"></i></a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">R in SAS</span></h1>
+<h2 class="author">Combining R and SAS -- how to run one software from another</h2>
+
+</div>
+
+<main>
+
+<script src="R in SAS_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Note: this works on Windows machines; must have both software loaded on same computer</p>
+<div id="r-in-sas" class="section level1">
+<h1>R in SAS:</h1>
+<div id="readying-your-machine-to-call-r" class="section level2">
+<h2>Readying Your Machine to Call R</h2>
+<p>In order to work with R inside SAS, we need to enable R language statements. To see whether RLANG is enabled on your machine, you can run:</p>
+<pre><code>  proc options option=rlang;
+  run;</code></pre>
+<p>One of two results will be printed to the log. You will either get a <em>NORLANG</em>, meaning you do not have permission to call R from SAS, or you will get <em>RLANG</em>, meaning you do have permission to call R from SAS.</p>
+<p>If you get NORLANG you need to change to RLANG. The easiest way is to right-click the SAS icon on your Desktop (put on desktop if not already there), and open Properties. In the Target field, as shown in Figure 1, it provides the location of your SAS configuration file. Generally, it is at:</p>
+<p><code>C:\ProgramFiles\SASHome\SASFoundation\9.4\nls\en\sasv9.cfg.</code></p>
+<p>Figure 1: SAS Properties</p>
+<p>Navigate to the SASV9.CFG file and open it. When you are in the configuration file, add <strong>-RLANG</strong> at the bottom as shown in Figure 2. Save these changes. <strong>Make sure that SAS is not open</strong> because SAS calls the configuration file each time it starts. You may need administrator permission to modify.</p>
+<p>Figure 2: SASV9.CFG file</p>
+</div>
+<div id="running-r-in-sas" class="section level2">
+<h2>Running R in SAS:</h2>
+<p>You need to have an R version compatible with the SAS version. A download to appropriate version (3.2.5) is below. You may need administrator permission to install.</p>
+<p><a href="https://blogs.sas.com/content/iml/2013/09/16/what-versions-of-r-are-supported-by-sas.html">Compatibility with R Releases</a></p>
+<table>
+<thead>
+<tr class="header">
+<th>SAS Version</th>
+<th>PROC IML</th>
+<th>SAS/IML Studio</th>
+<th>Release Date</th>
+<th>R Versions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9.4M3</td>
+<td>14.1</td>
+<td>14.1</td>
+<td>Aug 2015</td>
+<td>2.13.0 - <a href="https://cran.r-project.org/bin/windows/base/old/3.2.5">3.2.5</a></td>
+</tr>
+</tbody>
+</table>
+<p>Now, in the SAS session we need to point to the R program:</p>
+<p><code>options set=R_HOME='C:\Program Files\R\R-3.2.5';</code></p>
+<p>Use proc iml and submit/R as in below example:</p>
+<pre><code>  proc iml;
+    call ExportDataSetToR(&quot;Sashelp.Class&quot;, &quot;dframe&quot; );
+    submit / R;
+      names(dframe)
+      lm(Weight ~ Height + Age + Sex, data=dframe)
+    endsubmit;
+  run;</code></pre>
+<div id="using-libraries" class="section level3">
+<h3>Using libraries:</h3>
+<p>If you have a library loaded in the given R version, you can load it in SAS:</p>
+<pre><code>  proc iml;
+    submit / R;
+        library(X);
+    endsubmit;
+  run;</code></pre>
+<p>You have to ensure that you are using the library version compatible with your R version</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>I used the <a href="https://mran.microsoft.com/timemachine">CRAN time machine</a>, set to R version 3.2.5, downloaded the library zip files, and installed with R (not RStudio)</p></li>
+<li><p>I found loading the old packages with RStudio more complicated. If you need Rtools, older versions are <a href="https://cran.r-project.org/bin/windows/Rtools/history.html">here</a>, again, may require administrator permission</p></li>
+</ol>
+<p>You may need to re-direct R to the version.</p>
+<p>I was able to use: <code>writeLines'PATH="C:\rtools \bin;${PATH}"', con = "~/.Renviron")</code></p>
+<p>More information can be found at the SAS Guide: <a href="Calling%20R%20from%20SAS/IML">Calling R from SAS/IML</a></p>
+</div>
+</div>
+</div>
+<div id="resources" class="section level1">
+<h1>Resources:</h1>
+<p><a href="https://support.sas.com/en/books/free-books.html" class="uri">https://support.sas.com/en/books/free-books.html</a></p>
+<p><a href="https://support.sas.com/content/dam/SAS/support/en/books/free-books/sas-programming-for-r-users.pdf" class="uri">https://support.sas.com/content/dam/SAS/support/en/books/free-books/sas-programming-for-r-users.pdf</a></p>
+<p><a href="https://www.ssc.wisc.edu/~hemken/SASworkshops/SASWindows/RfromSAS.html" class="uri">https://www.ssc.wisc.edu/~hemken/SASworkshops/SASWindows/RfromSAS.html</a></p>
+<p><a href="https://blogs.sas.com/content/iml/2013/09/16/what-versions-of-r-are-supported-by-sas.html" class="uri">https://blogs.sas.com/content/iml/2013/09/16/what-versions-of-r-are-supported-by-sas.html</a></p>
+<p><a href="https://support.sas.com/documentation/cdl/en/imlug/66112/HTML/default/viewer.htm#imlug_r_toc.htm" class="uri">https://support.sas.com/documentation/cdl/en/imlug/66112/HTML/default/viewer.htm#imlug_r_toc.htm</a></p>
+<p><a href="https://cran.r-project.org/bin/windows/base/old/3.2.5/" class="uri">https://cran.r-project.org/bin/windows/base/old/3.2.5/</a></p>
+<p><a href="https://cran.r-project.org/bin/windows/Rtools/history.html" class="uri">https://cran.r-project.org/bin/windows/Rtools/history.html</a></p>
+<p><a href="https://mran.microsoft.com/timemachine" class="uri">https://mran.microsoft.com/timemachine</a></p>
+</div>
+
+</main>
+
+  <footer>
+  <hr>
+
+<footer style="background-color:#eee;">
+built with <a href="https://github.com/rstudio/blogdown">blogdown</a>, theme adapted from <a href="https://xmin.yihui.org"> Yihui's hugo-xmin </a>
+</footer>
+  
+  </footer>
+  </body>
+</html>
+

@@ -14,11 +14,6 @@ library(tidyverse)
 library(maps)
 library(ggmap)
 library(choroplethrMaps)
-# # for geocoding API
-# library(secret)
-# Sys.setenv(USER_KEY = "~Desktop/Kaitlin/key")
-# try(local_key(), silent = TRUE)
-htmltools::tagList(rmarkdown::html_dependency_font_awesome())
 ```
 
 This week is [Modes Less Traveled - Bicycling and Walking to Work in the United States: 2008-2012](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-11-05) from the  [ACS](https://www.census.gov/library/publications/2014/acs/acs-25.html?#).
@@ -301,5 +296,3 @@ walk_map
 plotly::ggplotly(walk_map + theme(legend.position = "none"))
 ```
 
-
-<hr />
