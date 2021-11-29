@@ -6,26 +6,5 @@
     <description>Recent content in Young Scholars on Kaitlin Maciejewski</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://k-maciejewski.github.io/young-scholars/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Intern projects</title>
-      <link>https://k-maciejewski.github.io/young-scholars/posts/intern_projects/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://k-maciejewski.github.io/young-scholars/posts/intern_projects/</guid>
-      <description>This year, we will offer an additional projects for the interns to participate in, which they will present to the YCAS group at the end of the program.
-Project Outline We will provide COVID-19 data and you will create dashboards to visualize and present the data. You can use plots that you know how to create, like bar charts, box plots, line plots. You will also learn how to create visualizations on maps.</description>
-    </item>
-    
-    <item>
-      <title>Plotting Maps</title>
-      <link>https://k-maciejewski.github.io/young-scholars/posts/plotting_maps/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://k-maciejewski.github.io/young-scholars/posts/plotting_maps/</guid>
-      <description>We’ll learn some methods to plot data onto maps of the US, how to make them interactive, and eventually how to create dashboards for the maps.
-usmap::plot_usmap()  Conveniently plot basic US map Description Conveniently plot basic US map
- Usage plot_usmap( regions = c(&amp;quot;states&amp;quot;, &amp;quot;state&amp;quot;, &amp;quot;counties&amp;quot;, &amp;quot;county&amp;quot;), include = c(), exclude = c(), data = data.frame(), values = &amp;quot;values&amp;quot;, theme = theme_map(), labels = FALSE, label_color = &amp;quot;black&amp;quot;, .</description>
-    </item>
-    
   </channel>
 </rss>
