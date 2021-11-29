@@ -1,0 +1,40 @@
+---
+title: "Intern projects"
+author: "Young Scholars Program"
+date: "01"
+output:
+  html_document:
+    df_print: paged
+    theme: flatly
+    toc: yes
+    toc_float: yes
+  word_document:
+    toc: yes
+  cache: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = T, echo = T, message = F)
+```
+
+This year, we will offer an additional projects for the interns to participate in, which they will present to the YCAS group at the end of the program.
+
+# Project Outline
+
+We will provide COVID-19 data and you will create dashboards to visualize and present the data. You can use plots that you know how to create, like bar charts, box plots, line plots. You will also learn how to create visualizations on maps. Using dashboards, you can add interactivity like check boxes or sliders, and you will present a story at the end of the summer.
+
+# Skills needed
+
+## learned during program last year
+
+-   Knowledge of importing, cleaning, using data in R
+-   creating documents in Rmarkdown
+-   ggplot
+
+## to learn this year
+
+-   how to plot data on maps
+-   how to create a dashboard, using the `flexdashboard` package
+-   how to create interactive and informative graphics, using `ggshiny` or `shiny`
+-   Github
+-   Website
