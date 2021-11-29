@@ -4,9 +4,9 @@ output:
   html_document
 ---
 
-I earned my Masters in Biostatistics from the [Mailman School of Public Health at Columbia University](https://www.publichealth.columbia.edu).
+I earned my Masters in Biostatistics from the Mailman School of Public Health at Columbia University.
 
-I am currently a biostatistician at the [Yale Center for Analytical Sciences](https://ysph.yale.edu/ycas/).
+I am currently a biostatistician at the Yale Center for Analytical Sciences.
 
 <img 
   src="/kmbs2.jpeg" 

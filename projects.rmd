@@ -4,10 +4,6 @@ title: Projects
 
 ... Personal projects and class projects ...
 
-### [Yale Center for Analytical Sciences (YCAS) Young Scholars](/young-scholars/)
-
-#
-#
 
 ### [Tidy Tuesdays](/tidytuesdays/)
 
