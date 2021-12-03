@@ -89,6 +89,15 @@ Login with OAuth, then find your cookie information. (Ex: inspect element &amp;g
     </item>
     
     <item>
+      <title>Advent of Code 2021: Day 3</title>
+      <link>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_3/</guid>
+      <description>— Day 3: Binary Diagnostic —   The submarine has been making some odd creaking noises, so you ask it to produce a diagnostic report just in case.  The diagnostic report (your puzzle input) consists of a list of binary numbers which, when decoded properly, can tell you many useful things about the conditions of the submarine. The first parameter to check is the power consumption.</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>https://k-maciejewski.github.io/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
