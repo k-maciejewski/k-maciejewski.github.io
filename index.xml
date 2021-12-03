@@ -44,6 +44,21 @@ The first map shows all squirrels with given distance above ground at which they
     </item>
     
     <item>
+      <title></title>
+      <link>https://k-maciejewski.github.io/advent-of-code/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/readme/</guid>
+      <description>Advent-of-Code-2021 About my method to read in descriptions and data for Advent of Code 2021
+(Using R) You will need:
+library(rvest)
+library(httr)
+1. Read the description for part 1, where N is the day number
+`r read_html(&amp;quot;https://adventofcode.com/2021/day/N&amp;quot;) %&amp;gt;% html_element(&amp;quot;.day-desc&amp;quot;) %&amp;gt;% paste(collapse = &#39;\n&#39;) `  2. To load data file, you need your cookie information
+Login with OAuth, then find your cookie information. (Ex: inspect element &amp;gt; network &amp;gt; input (may need to refresh) &amp;gt; scroll to cookies)</description>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>https://k-maciejewski.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -62,6 +77,8 @@ I am interested in:  Optimized utilization of electronic health records Data vis
       
       <guid>https://k-maciejewski.github.io/projects/</guid>
       <description>&amp;hellip; Personal projects and class projects &amp;hellip;
+Advent of Code An Advent calendar of small programming puzzles for a variety of skill sets and skill levels, by Eric Wastl
+Contributions for 2021
 Tidy Tuesdays TidyTuesday is a weekly community activity by the R4DS Online Learning Community. The goal is to help R learners learn in real-world contexts. My contributions and visualizations are also at my github.
   Graduate capstone project: The relationship between depression and sociodemographic and economic characteristics in New York City adults 2016-2017  Completed as a graduation requirement Columbia University in 2019, under the guidance of Lauren Martini at the New York City Department of Health and Mental Hygiene.</description>
     </item>

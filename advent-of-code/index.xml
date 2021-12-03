@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advent of Code on Kaitlin Maciejewski</title>
+    <link>https://k-maciejewski.github.io/advent-of-code/</link>
+    <description>Recent content in Advent of Code on Kaitlin Maciejewski</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://k-maciejewski.github.io/advent-of-code/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title></title>
+      <link>https://k-maciejewski.github.io/advent-of-code/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/readme/</guid>
+      <description>Advent-of-Code-2021 About my method to read in descriptions and data for Advent of Code 2021
+(Using R) You will need:
+library(rvest)
+library(httr)
+1. Read the description for part 1, where N is the day number
+`r read_html(&amp;quot;https://adventofcode.com/2021/day/N&amp;quot;) %&amp;gt;% html_element(&amp;quot;.day-desc&amp;quot;) %&amp;gt;% paste(collapse = &#39;\n&#39;) `  2. To load data file, you need your cookie information
+Login with OAuth, then find your cookie information. (Ex: inspect element &amp;gt; network &amp;gt; input (may need to refresh) &amp;gt; scroll to cookies)</description>
+    </item>
+    
+  </channel>
+</rss>
