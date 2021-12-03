@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About | Kaitlin Maciejewski</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <script src="https://kit.fontawesome.com/2572d6fa3c.js" crossorigin="anonymous"></script>
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li>
+        <a href="/">Home</a>
+      </li>
+      
+      <li>
+        <a href="/about/">About</a>
+      </li>
+      
+      <li>
+        <a href="/projects/">Projects</a>
+      </li>
+      
+      <li>
+        <a href="/code-blog/">Code Blog</a>
+      </li>
+      
+      
+      <li class="navbar-icon"><a href="mailto:katemac68@gmail.com"><i class="fas fa-envelope"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://github.com/k-maciejewski/"><i class="fab fa-github"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.linkedin.com/in/kmaciejewski/"><i class="fab fa-linkedin"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://orcid.org/0000-0002-6387-582X"><i class="fab fa-orcid"></i></a></li>
+      
+      <li class="navbar-icon"><a href="https://www.researchgate.net/profile/Kaitlin-Maciejewski"><i class="fab fa-researchgate"></i></a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">About</span></h1>
+
+
+</div>
+
+<main>
+<h1 id="advent-of-code-2021">Advent-of-Code-2021</h1>
+<p>About my method to read in descriptions and data for Advent of Code 2021</p>
+<p>(Using R)</p>
+<p>library(rvest)</p>
+<p>library(httr)</p>
+<p><strong>1. Read the description for part 1, where N is the day number</strong></p>
+<pre><code>`r read_html(&quot;https://adventofcode.com/2021/day/N&quot;) %&gt;% 
+  html_element(&quot;.day-desc&quot;) %&gt;% 
+  paste(collapse = '\n') `
+</code></pre>
+<p><strong>2. To load data file, you need your cookie information</strong></p>
+<p>Login with OAuth, then find your cookie information. (Ex: inspect element &gt; network &gt; input (may need to refresh) &gt; scroll to cookies)</p>
+<p><img src="/AOC_GET.png" alt=""></p>
+<p>Save in separate file (I used .csv) or enter in specified places below:</p>
+<p><code>input</code> will scrape the data for part 1</p>
+<pre><code>input &lt;- GET(&quot;https://adventofcode.com/2021/day/N/input&quot;, 
+           set_cookies(`_ga`=cookie$Input[1], 
+                         `_gid`=cookie$Input[2],
+                         `session`=cookie$Input[3]))
+</code></pre>
+<p><strong>3. This is an example of how to read in and parse the data:</strong></p>
+<pre><code>input_text &lt;- content(input, &quot;text&quot;) %&gt;% 
+  read_lines() %&gt;% 
+  as.array() 
+</code></pre>
+<p><strong>4. After solving part 1 and entering answer on adventofcode.com, you can read description for part 2 using the following:</strong></p>
+<pre><code>`r read_html(part2)%&gt;% 
+  html_element(&quot;.day-success+ .day-desc&quot;) %&gt;% 
+  paste(collapse = '\n')`
+</code></pre>
+
+</main>
+
+  <footer>
+  <hr>
+
+<footer style="background-color:#eee;">
+built with <a href="https://github.com/rstudio/blogdown">blogdown</a>, theme adapted from <a href="https://xmin.yihui.org"> Yihui's hugo-xmin </a>
+</footer>
+  
+  </footer>
+  </body>
+</html>
+

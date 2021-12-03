@@ -44,21 +44,6 @@ The first map shows all squirrels with given distance above ground at which they
     </item>
     
     <item>
-      <title></title>
-      <link>https://k-maciejewski.github.io/advent-of-code/readme/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://k-maciejewski.github.io/advent-of-code/readme/</guid>
-      <description>Advent-of-Code-2021 About my method to read in descriptions and data for Advent of Code 2021
-(Using R) You will need:
-library(rvest)
-library(httr)
-1. Read the description for part 1, where N is the day number
-`r read_html(&amp;quot;https://adventofcode.com/2021/day/N&amp;quot;) %&amp;gt;% html_element(&amp;quot;.day-desc&amp;quot;) %&amp;gt;% paste(collapse = &#39;\n&#39;) `  2. To load data file, you need your cookie information
-Login with OAuth, then find your cookie information. (Ex: inspect element &amp;gt; network &amp;gt; input (may need to refresh) &amp;gt; scroll to cookies)</description>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>https://k-maciejewski.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -68,6 +53,39 @@ Login with OAuth, then find your cookie information. (Ex: inspect element &amp;g
 I am currently a biostatistician at the Yale Center for Analytical Sciences.
 I hope to use data-driven decisions to improve health care and access to care.
 I am interested in:  Optimized utilization of electronic health records Data visualization Clinical trials design and methods Science education, awareness, accessibility   Tools of the trade: RStudio, Shiny, SAS, SAS-SUDAAN, SQL, Tableau, MATLAB, and more</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://k-maciejewski.github.io/advent-of-code/posts/readme/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/posts/readme/</guid>
+      <description>Advent-of-Code-2021 About my method to read in descriptions and data for Advent of Code 2021
+(Using R)
+library(rvest)
+library(httr)
+1. Read the description for part 1, where N is the day number
+`r read_html(&amp;quot;https://adventofcode.com/2021/day/N&amp;quot;) %&amp;gt;% html_element(&amp;quot;.day-desc&amp;quot;) %&amp;gt;% paste(collapse = &#39;\n&#39;) `  2. To load data file, you need your cookie information
+Login with OAuth, then find your cookie information. (Ex: inspect element &amp;gt; network &amp;gt; input (may need to refresh) &amp;gt; scroll to cookies)</description>
+    </item>
+    
+    <item>
+      <title>Advent of Code 2021: Day 1</title>
+      <link>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_1/</guid>
+      <description>— Day 1: Sonar Sweep —   You’re minding your own business on a ship at sea when the overboard alarm goes off! You rush to see if you can help. Apparently, one of the Elves tripped and accidentally sent the sleigh keys flying into the ocean!  Before you know it, you’re inside a submarine the Elves keep ready for situations like this. It’s covered in Christmas lights (because of course it is), and it even has an experimental antenna that should be able to track the keys if you can boost its signal strength high enough; there’s a little meter that indicates the antenna’s signal strength by displaying 0-50 stars.</description>
+    </item>
+    
+    <item>
+      <title>Advent of Code 2021: Day 2</title>
+      <link>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_2/</guid>
+      <description>— Day 2: Dive! —   Now, you need to figure out how to pilot this thing.  It seems like the submarine can take a series of commands like forward 1, down 2, or up 3:   forward X increases the horizontal position by X units.   down X increases the depth by X units.   up X decreases the depth by X units.</description>
     </item>
     
     <item>

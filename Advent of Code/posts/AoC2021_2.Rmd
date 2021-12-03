@@ -1,6 +1,5 @@
 ---
 title: "Advent of Code 2021: Day 2"
-author: "Kaitlin Maciejewski"
 ---
   
 ```{r setup, include=FALSE}
@@ -8,7 +7,7 @@ knitr::opts_chunk$set(echo = F, message = F, warning = F)
 library(tidyverse)
 library(rvest)
 library(httr)
-cookie <- read.csv(here::here("cookie.csv"))
+cookie <- read.csv(here::here("content/Advent of Code/posts/cookie.csv"))
 ```
 
 `r read_html("https://adventofcode.com/2021/day/2") %>% 
@@ -20,38 +19,60 @@ input <- GET("https://adventofcode.com/2021/day/2/input",
              set_cookies(`_ga`=cookie$Input[1], 
                          `_gid`=cookie$Input[2],
                          `session`=cookie$Input[3]))
-
-input_text <- content(input, "text") %>% 
-  read_lines() %>% 
-  as.array() 
 ```
 
 # Part 1 solution
-```{r, echo = T, eval = F}
-# sum forward
+```{r, echo = T, eval = T}
+input_text <- content(input, "text") %>% 
+  read_lines() %>% 
+  as_tibble() %>% 
+  separate(., value, c("value", "number"), " ") %>% 
+  mutate(number = as.numeric(number))
 
-# sum down
-x <- data.frame(diff(as.matrix(input_text))) 
-
-y <- which(x > 0)
-
-length(y)
+unique(input_text$value)
 ```
 
-```{r, eval = F}
+```{r, echo = T, eval = T}
+forward <- input_text %>% 
+  filter(value == "forward")
+
+down <- input_text %>% 
+  filter(value == "down") 
+
+up <- input_text %>% 
+  filter(value == "up") %>% 
+  mutate(number)
+```
+
+Horizontal: `r sum(forward$number)`
+
+Vertical: `r sum(down$number) - sum(up$number)`
+
+If you multiply your final horizontal position by your final depth: `r sum(forward$number) * (sum(down$number) - sum(up$number))`
+
+```{r, eval = T}
 part2 <- GET("https://adventofcode.com/2021/day/2#part2", 
              set_cookies(`_ga`=cookie$Input[1], 
                          `_gid`=cookie$Input[2],
                          `session`=cookie$Input[3]))
-
-` read_html(part2)%>% 
-  html_element(".day-success+ .day-desc") %>% 
-  paste(collapse = '\n')`
 ```
 
-
+`r read_html(part2)%>% 
+  html_element("p + .day-desc") %>% 
+  paste(collapse = '\n')`
 
 # Part 2 solution
-```{r, echo = T, eval = F}
+```{r, echo = T, eval = T}
+solution2 <- input_text %>% 
+  mutate(number = ifelse(value == "up", number * -1, number)) %>% 
+  mutate(aim = ifelse(value != "forward", number, 0)) %>% 
+  mutate(aim = cumsum(aim)) %>% 
+  mutate(horizontal = ifelse(value == "forward", number, 0)) %>% 
+  mutate(horizontal = cumsum(horizontal)) %>% 
+  mutate(depth = ifelse(value == "forward", aim * number, 0)) %>% 
+  mutate(depth = cumsum(depth))
 
+solution2[1000,3:5]
+
+solution2[1000,4] * solution2[1000,5]
 ```
