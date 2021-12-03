@@ -114,14 +114,12 @@ sol_2 <- input_text %>%
 # using a loop
 sol_2_1 <- input_text
 for (i in 1:12){
-    while (length(sol_2_1$value) > 1) {
     col <- paste("col_", i, sep = "")
     ox_gen <- paste("ox_gen_", i, sep = "")
-  sol_2_1 <- sol_2_1 %>% 
-  mutate(col = as.numeric(substr(value, i, i))) %>% 
-  mutate(ox_gen = ifelse(mean(col) >= 0.5, 1, 0)) %>% 
-  filter(col == ox_gen) 
-    }
+    sol_2_1 <- sol_2_1 %>% 
+      mutate(col = as.numeric(substr(value, i, i))) %>% 
+      mutate(ox_gen = ifelse(mean(col) >= 0.5, 1, 0)) %>% 
+      filter(col == ox_gen)
 }
 ox_gen <- sol_2_1$value
 
@@ -136,6 +134,9 @@ for (i in 1:12){
   mutate(col = as.numeric(substr(value, i, i))) %>% 
   mutate(co_scrub = ifelse(mean(col) < 0.5, 1, 0)) %>% 
   filter(col == co_scrub) 
+  if ((length(sol_2_1$value) = 1)) {
+      break
+    }
   }
 }
 co_scrub <- sol_2_2$value

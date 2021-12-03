@@ -319,9 +319,7 @@ Use the binary numbers in your diagnostic report to calculate the oxygen generat
 </div>
 <div id="part-2-solution" class="section level1">
 <h1>Part 2 solution</h1>
-<pre class="r"><code># using sol_1:
-# most common for 1 is 1
-# filter to col_1 = 1
+<pre class="r"><code>#initial long way ...
 
 sol_2 &lt;- input_text %&gt;% 
   mutate(col_1 = as.numeric(substr(value, 1, 1))) %&gt;% 
@@ -333,37 +331,8 @@ sol_2 &lt;- input_text %&gt;%
   mutate(col_3 = as.numeric(substr(value, 3, 3))) %&gt;% 
   mutate(ox_gen3 = ifelse(mean(col_3) &gt;= 0.5, 1, 0)) %&gt;% 
   filter(col_3 == ox_gen3) %&gt;%   
-  mutate(col_4 = as.numeric(substr(value, 4, 4))) %&gt;% 
-  mutate(ox_gen4 = ifelse(mean(col_4) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_4 == ox_gen4) %&gt;%   
-  mutate(col_5 = as.numeric(substr(value, 5, 5))) %&gt;% 
-  mutate(ox_gen5 = ifelse(mean(col_5) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_5 == ox_gen5) %&gt;%   
-  mutate(col_6 = as.numeric(substr(value, 6, 6))) %&gt;% 
-  mutate(ox_gen6 = ifelse(mean(col_6) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_6 == ox_gen6) %&gt;%   
-  mutate(col_7 = as.numeric(substr(value, 7, 7))) %&gt;% 
-  mutate(ox_gen7 = ifelse(mean(col_7) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_7 == ox_gen7) %&gt;%   
-  mutate(col_8 = as.numeric(substr(value, 8, 8))) %&gt;% 
-  mutate(ox_gen8 = ifelse(mean(col_8) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_8 == ox_gen8) %&gt;%   
-  mutate(col_9 = as.numeric(substr(value, 9, 9))) %&gt;% 
-  mutate(ox_gen9 = ifelse(mean(col_9) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_9 == ox_gen9) %&gt;%   
-  mutate(col_10 = as.numeric(substr(value, 10, 10))) %&gt;% 
-  mutate(ox_gen10 = ifelse(mean(col_10) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_10 == ox_gen10) %&gt;%   
-  mutate(col_11 = as.numeric(substr(value, 11, 11))) %&gt;% 
-  mutate(ox_gen11 = ifelse(mean(col_11) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_11 == ox_gen11) %&gt;%   
-  mutate(col_12 = as.numeric(substr(value, 12, 12))) %&gt;% 
-  mutate(ox_gen12 = ifelse(mean(col_12) &gt;= 0.5, 1, 0)) %&gt;% 
-  filter(col_12 == ox_gen12)
+  etc ...
 
-ox_gen &lt;- sol_2$value
-
-# while length(value) &gt; 1:
 sol_2 &lt;- input_text %&gt;% 
   mutate(col_1 = as.numeric(substr(value, 1, 1))) %&gt;% 
   mutate(co_scrub1 = ifelse(mean(col_1) &lt; 0.5, 1, 0)) %&gt;% 
@@ -376,30 +345,43 @@ sol_2 &lt;- input_text %&gt;%
   filter(col_3 == co_scrub3) %&gt;%   
   mutate(col_4 = as.numeric(substr(value, 4, 4))) %&gt;% 
   mutate(co_scrub4 = ifelse(mean(col_4) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_4 == co_scrub4) %&gt;%   
-  mutate(col_5 = as.numeric(substr(value, 5, 5))) %&gt;% 
-  mutate(co_scrub5 = ifelse(mean(col_5) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_5 == co_scrub5) %&gt;%   
-  mutate(col_6 = as.numeric(substr(value, 6, 6))) %&gt;% 
-  mutate(co_scrub6 = ifelse(mean(col_6) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_6 == co_scrub6) %&gt;%   
-  mutate(col_7 = as.numeric(substr(value, 7, 7))) %&gt;% 
-  mutate(co_scrub7 = ifelse(mean(col_7) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_7 == co_scrub7) %&gt;%   
-  mutate(col_8 = as.numeric(substr(value, 8, 8))) %&gt;% 
-  mutate(co_scrub8 = ifelse(mean(col_8) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_8 == co_scrub8) %&gt;%   
-  mutate(col_9 = as.numeric(substr(value, 9, 9))) %&gt;% 
-  mutate(co_scrub9 = ifelse(mean(col_9) &lt; 0.5, 1, 0)) %&gt;% 
-  filter(col_9 == co_scrub9) 
+  filter(col_4 == co_scrub4) ...</code></pre>
+<pre class="r"><code># using a loop
+sol_2_1 &lt;- input_text
+for (i in 1:12){
+    col &lt;- paste(&quot;col_&quot;, i, sep = &quot;&quot;)
+    ox_gen &lt;- paste(&quot;ox_gen_&quot;, i, sep = &quot;&quot;)
+    sol_2_1 &lt;- sol_2_1 %&gt;% 
+      mutate(col = as.numeric(substr(value, i, i))) %&gt;% 
+      mutate(ox_gen = ifelse(mean(col) &gt;= 0.5, 1, 0)) %&gt;% 
+      filter(col == ox_gen)
+}
+ox_gen &lt;- sol_2_1$value
 
-co_scrub &lt;- sol_2$value
+# while length(value) &gt; 1:
+
+sol_2_2 &lt;- input_text
+for (i in 1:12){
+  while (length(sol_2_2$value) &gt; 1) {
+    col &lt;- paste(&quot;col_&quot;, i, sep = &quot;&quot;)
+    co_scrub &lt;- paste(&quot;co_scrub_&quot;, i, sep = &quot;&quot;)
+  sol_2_2 &lt;- sol_2_2 %&gt;% 
+  mutate(col = as.numeric(substr(value, i, i))) %&gt;% 
+  mutate(co_scrub = ifelse(mean(col) &lt; 0.5, 1, 0)) %&gt;% 
+  filter(col == co_scrub) 
+  if ((length(sol_2_1$value) = 1)) {
+      break
+    }
+  }
+}
+co_scrub &lt;- sol_2_2$value
 
 ox_gen &lt;- strtoi(as.numeric(ox_gen), 2)
 
 co_scrub &lt;- strtoi(as.numeric(co_scrub), 2)
 
 ox_gen * co_scrub</code></pre>
+<pre><code>## [1] 5736383</code></pre>
 </div>
 
 </main>
