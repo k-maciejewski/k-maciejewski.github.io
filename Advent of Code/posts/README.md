@@ -1,7 +1,3 @@
----
-title: About
----
-
 # Advent-of-Code-2021
 
 About my method to read in descriptions and data for Advent of Code 2021
