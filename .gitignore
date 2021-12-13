@@ -1,4 +1,5 @@
 *.csv
 .Rproj.user
-young.*
-Young.*
+young*
+Young*
+Advent*

@@ -98,14 +98,21 @@ Login with OAuth, then find your cookie information. (Ex: inspect element &amp;g
     </item>
     
     <item>
+      <title>Advent of Code 2021: Day 4</title>
+      <link>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_4/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://k-maciejewski.github.io/advent-of-code/posts/aoc2021_4/</guid>
+      <description>— Day 4: Giant Squid —   You’re already almost 1.5km (almost a mile) below the surface of the ocean, already so deep that you can’t see any sunlight. What you can see, however, is a giant squid that has attached itself to the outside of your submarine.  Maybe it wants to play bingo?  Bingo is played on a set of boards each consisting of a 5x5 grid of numbers.</description>
+    </item>
+    
+    <item>
       <title>Projects</title>
       <link>https://k-maciejewski.github.io/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://k-maciejewski.github.io/projects/</guid>
       <description>&amp;hellip; Personal projects and class projects &amp;hellip;
-Advent of Code An Advent calendar of small programming puzzles for a variety of skill sets and skill levels, by Eric Wastl
-Contributions for 2021
 Tidy Tuesdays TidyTuesday is a weekly community activity by the R4DS Online Learning Community. The goal is to help R learners learn in real-world contexts. My contributions and visualizations are also at my github.
   Graduate capstone project: The relationship between depression and sociodemographic and economic characteristics in New York City adults 2016-2017  Completed as a graduation requirement Columbia University in 2019, under the guidance of Lauren Martini at the New York City Department of Health and Mental Hygiene.</description>
     </item>
