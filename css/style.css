@@ -1,21 +1,67 @@
+/* Style button */
+.btn {
+  border: none; 
+  border-radius: 50%;
+  background-color: #eee;
+}
+
+.btn:hover {
+  background-color: blue;
+  color: #e1e2e5;
+}
+
 body {
   max-width: 800px;
   margin: auto;
   padding: 1em;
   line-height: 1.5em;
+  display: flex;
+	min-height: 100vh; 
+	flex-direction: column; 
+	justify-content: flex-end;
+}
+
+.right-align{
+  text-align: right;
+  float:right;
+}
+
+.left-align{
+  float:left;
+  text-align: left;
+}
+
+.dark-mode {
+  /* background and font color from darkly */
+  background-color: #222; 
+  color: #e1e2e5;
 }
 
 /* header and footer areas */
-.menu li { display: inline-block; }
-.article-meta, .menu a {
+.menu {background-color: #eee; padding-inline-start: 0;}
+.menu li {display: inline-block;}
+.menu a {color: blue;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+
+.article-meta, footer { text-align: center; color: black;}
+
+footer {font-size: 90%;   margin-top: auto;
+} a { text-decoration: none; }
+
+/* page title */
+.article-meta {
   text-decoration: none;
   background: #eee;
   padding: 5px;
   border-radius: 5px;
 }
-.menu, .article-meta, footer { text-align: center; }
 .title { font-size: 1.1em; }
-footer {font-size: 90%} a { text-decoration: none; }
+
 hr { 
   border-style: dashed;
   color: #ddd;
