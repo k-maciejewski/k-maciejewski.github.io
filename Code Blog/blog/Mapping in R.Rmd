@@ -1,0 +1,7 @@
+---
+title: Mapping in R
+---
+
+Simple mapping and dashboarding tutorial; created for Yale Young Scholars 2021
+
+Access project site [here](https://k-maciejewski.github.io/YS_mapping/)
